@@ -1,11 +1,11 @@
 class Solution {
     func containsDuplicate(_ nums: [Int]) -> Bool {
-        var counts: [Int:Int] = [:]
+        var existing: Set<Int> = []
         for n in nums {
-            guard counts[n] == nil else {
+            guard !existing.contains(n) else {
                 return true
             }
-            counts[n] = 1
+            existing.insert(n)
         }
         return false
     }
