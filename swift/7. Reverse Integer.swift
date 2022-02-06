@@ -6,9 +6,9 @@ class Solution {
             let digit = y % 10
             z = z * 10 + (digit)
             y /= 10
-            if z < Int32.min || z > Int32.max {
-                return 0
-            }
+        }
+        if z < Int32.min || z > Int32.max {
+            return 0
         }
         return z
     }
