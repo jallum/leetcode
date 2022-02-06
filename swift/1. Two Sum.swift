@@ -1,12 +1,12 @@
 class Solution {
   func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+    var indexesByValue: [Int:Int] = [:]
     for (ix, x) in nums.enumerated() {
-      for (iy, y) in nums.enumerated() where ix < iy {
-        if x + y == target {
-          return [ix, iy];
-        }
+      if let iy = indexesByValue[target - x] {
+        return [iy, ix]
       }
+      indexesByValue[x] = ix
     }
-    return [];
+    return []
   }
 }
