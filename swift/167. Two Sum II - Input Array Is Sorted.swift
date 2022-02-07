@@ -1,12 +1,15 @@
 class Solution {
     func twoSum(_ numbers: [Int], _ target: Int) -> [Int] {
-        var indexesBySum: [Int:Int] = [:]
-        for (i, n) in numbers.enumerated() {
-            if let j = indexesBySum[n] {
-                return [j + 1, i + 1]                
+        var l = 0, h = numbers.count - 1
+        var sum = numbers[l] + numbers[h]
+        while sum != target {
+            if sum < target {
+                l += 1
+            } else {
+                h -= 1
             }
-            indexesBySum[target - n] = i
+            sum = numbers[l] + numbers[h]
         }
-        return []
+        return [l + 1, h + 1]
     }
 }
