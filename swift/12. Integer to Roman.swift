@@ -1,58 +1,19 @@
 class Solution {
+    let table: [(Int,String)] = [
+        (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
+        ( 100, "C"), ( 90, "XC"), ( 50, "L"), ( 40, "XL"),
+        (  10, "X"), (  9, "IX"), (  5, "V"), (  4, "IV"),
+        (   1, "I") 
+    ]
+
     func intToRoman(_ num: Int) -> String {
         var s = ""
-        var num = num
-        while num >= 1000 {
-            s += "M"
-            num -= 1000
-        }
-        if num >= 900 {
-            s += "CM"
-            num -= 900
-        }
-        if num >= 500 {
-            s += "D"
-            num -= 500
-        }
-        if num >= 400 {
-            s += "CD"
-            num -= 400
-        }
-        while num >= 100 {
-            s += "C"
-            num -= 100
-        }
-        if num >= 90 {
-            s += "XC"
-            num -= 90
-        }
-        if num >= 50 {
-            s += "L"
-            num -= 50
-        }
-        if num >= 40 {
-            s += "XL"
-            num -= 40
-        }
-        while num >= 10 {
-            s += "X"
-            num -= 10
-        }
-        if num == 9 {
-            s += "IX"
-            num -= 9
-        }
-        if num >= 5 {
-            s += "V"
-            num -= 5
-        }
-        if num == 4 {
-            s += "IV"
-            num -= 4
-        }
-        while num >= 1 {
-            s += "I"
-            num -= 1
+        var x = num
+        for (n, d) in table {
+            while x >= n {
+                s += d
+                x -= n
+            }
         }
         return s
     }
